@@ -5,7 +5,9 @@ def error_message_detail(error,error_detail:sys):
     _,_,exc_tb = error_detail.exc_info()
     filename  = exc_tb.tb_frame.f_code.co_filename
     
-    error_message= "Error occured in the line number [{0}] of file name [{1}] and the error is [{2}]".format(exc_tb.tb_lineno,filename,error)
+    error_message= '''Error occured in the line number [{0}] 
+                        of file name [{1}] and 
+                        the error is [{2}]'''.format(exc_tb.tb_lineno,filename,error)
     return error_message
 
 class CustomException(Exception):
