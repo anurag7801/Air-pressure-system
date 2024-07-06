@@ -1,18 +1,53 @@
+from sensor.config.mongo_db_connection import MongoDBClient
 from sensor.exception.exception import CustomException
-import os
-import sys
+import os , sys
 from sensor.logging.logger import logging
-from sensor.utils.utils import dump_csv_file_to_mongodb_collection
+#from  sensor.utils import dump_csv_file_to_mongodb_collecton
+#from sensor.entity.config_entity  import TrainingPipelineConfig,DataIngestionConfig
 
-def test():
-    try:
-        logging.info("Entered in try block....")
-        a = 1/0
-    except Exception as e:
-        raise CustomException(e,sys)
+from sensor.pipeline.training_pipeline import TrainPipeline
+
+# def test_exception():
+#     try:
+#         logging.info("ki yaha p bhaiaa ek error ayegi diveision by zero wali error ")
+#         a=1/0
+#     except Exception as e:
+#        raise SensorException(e,sys) 
+
+
 
 if __name__ == "__main__":
-    file_path = r'D:\Github Projects\Air-pressure-system\aps_failure_training_set1.csv'
-    database_name = "air-pressure-system"
-    collection_name = "sensor"
-    dump_csv_file_to_mongodb_collection(filepath=file_path,database_name=database_name,collection_name=collection_name)
+
+    # file_path="/Users/myhome/Downloads/sensorlive/aps_failure_training_set1.csv"
+    # database_name="ineuron"
+    # collection_name ="sensor"
+    # dump_csv_file_to_mongodb_collection(file_path,database_name,collection_name)
+
+    training_pipeline = TrainPipeline()
+    training_pipeline.run_pipeline()
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    # try:
+    #     test_exception()
+    # except Exception as e:
+    #     print(e)
