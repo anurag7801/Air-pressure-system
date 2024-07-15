@@ -23,7 +23,7 @@ class SensorData:
         
     def save_csv_file(self,file_path,collection_name: str, database_name: Optional[str] = None):
         try:
-            logging.info("enteren in sensor_data save_csv_file function")
+            logging.info("entered in sensor_data save_csv_file function")
             data_frame = pd.read_csv(file_path)
             data_frame.reset_index(drop=True, inplace=True)
             records = list(json.loads(data_frame.T.to_json()).values())
